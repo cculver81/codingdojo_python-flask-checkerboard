@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        .boardRow{
+            display: grid;
+            grid-auto-rows: auto;
+        }
+        .redSquare{
+            outline: 1px solid black;
+            height: 50px;
+            width: 50px;
+            background-color: red;
+        }
+        .blackSquare{
+            outline: 1px solid black;
+            width: 50px;
+            height: 50px;
+            background-color: black;
+        }
+    </style>
+    <title>Document</title>
+</head>
+<body>
+    <header class="jumbotron">
+
+    </header>
+
+    <main class="container d-flex justify-content-center">
+        {% for column in range(y): %}
+            <div class="row boardRow">
+                {% for i in range(1,x+1,1): %}
+                    {% if i%2 != 0: %}
+                        <div class='redSquare'></div>
+                    {% else: %}
+                        <div class='blackSquare'></div>
+                    {% endif %}
+                {% endfor %}
+            </div>
+        {% endfor %}
+    </main>
+</body>
+</html>
