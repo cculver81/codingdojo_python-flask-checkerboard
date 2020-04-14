@@ -4,8 +4,34 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename = 'css/style.css') }}">
-    <title>Document</title>
+    
+    <!-- The extnal stylesheet did not work with the jinja variables -->
+    <!-- <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename = "css/style.css") }}"> -->
+    <style> 
+        :root{
+            --redSquareColor: {{ rsc }};
+            --blackSquareColor: {{ bsc }};
+        }
+        .redSquare{
+            margin: 0px;
+            outline: 1px solid black;
+            height: 50px;
+            width: 50px;
+            background-color: var(--redSquareColor);
+            display: inline-block;
+            vertical-align:  middle;
+        }
+        .blackSquare{
+            margin: 0px;
+            outline: 1px solid black;
+            width: 50px;
+            height: 50px;
+            background-color: var(--blackSquareColor);
+            display: inline-block;
+            vertical-align:  middle;
+        }
+    </style>
+    <title>Checkerboard Project</title>
 </head>
 <body>
     <header class="jumbotron">

@@ -1,0 +1,24 @@
+/* Jinja variables do not work with the extnal stylesheet */
+
+:root{
+    --redSquareColor: {{ rsc }};
+    --blackSquareColor: {{ bsc }};
+}
+.redSquare{
+    margin: 0px;
+    outline: 1px solid black;
+    height: 50px;
+    width: 50px;
+    background-color: var(--redSquareColor);
+    display: inline-block;
+    vertical-align:  middle;
+}
+.blackSquare{
+    margin: 0px;
+    outline: 1px solid black;
+    width: 50px;
+    height: 50px;
+    background-color: var(--blackSquareColor);
+    display: inline-block;
+    vertical-align:  middle;
+}
