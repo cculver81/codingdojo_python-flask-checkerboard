@@ -4,21 +4,23 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <style>
-        .boardRow{
-            display: grid;
-            grid-auto-rows: auto;
-        }
         .redSquare{
+            margin: 0px;
             outline: 1px solid black;
             height: 50px;
             width: 50px;
             background-color: red;
+            display: inline-block;
+            vertical-align:  middle;
         }
         .blackSquare{
+            margin: 0px;
             outline: 1px solid black;
             width: 50px;
             height: 50px;
             background-color: black;
+            display: inline-block;
+            vertical-align:  middle;
         }
     </style>
     <title>Document</title>
@@ -29,15 +31,25 @@
     </header>
 
     <main class="container d-flex justify-content-center">
-        {% for column in range(y): %}
-            <div class="row boardRow">
-                {% for i in range(1,x+1,1): %}
-                    {% if i%2 != 0: %}
-                        <div class='redSquare'></div>
-                    {% else: %}
-                        <div class='blackSquare'></div>
-                    {% endif %}
-                {% endfor %}
+        {% for i in range(1,y+1,1): %}
+            <div class="row">
+                {% if i%2 != 0: %}
+                    {% for i in range(1,x+1,1): %}
+                        {% if i%2 != 0: %}
+                            <div class='redSquare'></div>
+                        {% else: %}
+                            <div class='blackSquare'></div>
+                        {% endif %}
+                    {% endfor %}
+                {% else: %}
+                    {% for i in range(1,x+1,1): %}
+                        {% if i%2 != 0: %}
+                            <div class='blackSquare'></div>
+                        {% else: %}
+                            <div class='redSquare'></div>
+                        {% endif %}
+                    {% endfor %}
+                {% endif %}
             </div>
         {% endfor %}
     </main>
