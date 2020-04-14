@@ -5,19 +5,33 @@ app = Flask(__name__)
 def index():
     x = 8
     y = 8
-    return render_template('index.html', x=x, y=y)
+    rsc = 'red'
+    bsc = 'black'
+    return render_template('index.html', x=x, y=y, rsc=rsc, bsc=bsc)
 
 @app.route('/<int:height>')
 def adjHeight(height):
     x = 8
     y = height
-    return render_template('index.html', x=x, y=y)
+    rsc = 'red'
+    bsc = 'black'
+    return render_template('index.html', x=x, y=y, rsc=rsc, bsc=bsc)
 
 @app.route('/<int:width>/<int:height>')
-def adjBoth(width, height):
+def adjwidthHeight(width, height):
     x = width
     y = height
-    return render_template('index.html', x=x, y=y) 
+    rsc = 'red'
+    bsc = 'black'
+    return render_template('index.html', x=x, y=y, rsc=rsc, bsc=bsc)
+
+@app.route('/<int:width>/<int:height>/<string:redSquareColor>/<string:blackSquareColor>')
+def adjWidthHeightColor(width, height, redSquareColor, blackSquareColor):
+    x = width
+    y = height
+    rsc = redSquareColor
+    bsc = blackSquareColor
+    return render_template('index.html', x=x, y=y, rsc=rsc, bsc=bsc)
 
 if __name__ =='__main__':
     app.run(debug=True)
